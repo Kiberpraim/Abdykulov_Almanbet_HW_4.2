@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Main {
@@ -29,5 +30,16 @@ public class Main {
             listC.add(listB.get(i));
         }
         System.out.println("\n" + listC);
+        Comparator<String> wordLengthComparator = new Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                return Integer.compare(s1.length(), s2.length());
+            }
+        };
+
+
+        Collections.sort(listC, wordLengthComparator);
+
+        System.out.println("Отсортированный список listC: " + listC);
     }
 }
